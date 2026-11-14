@@ -1,0 +1,1054 @@
+{
+ "schema_version": "1.2",
+ "kb_version": "v1.2",
+ "kb_name": "路书 · 职业规划知识库统一目录",
+ "generated_at": "2026-11-12",
+ "db": "lu_shu_kb_v1.2.db",
+ "description": "覆盖「学校行动层」（profession 17 条）与「大湾区区域层」（region 8 条），共 25 条；每条带 group_code（9 个检索分组）、kb_variable、table_hint、canvas_node，供智能体按分组检索与跨库跳转。路径相对 v1.2/ 目录。",
+ "systems": [
+  {
+   "id": "profession",
+   "name": "职业规划_知识库（学校行动层）",
+   "file": "职业规划_知识库_v1.1.md",
+   "scope": "学校/珠三角（广州市高职院校）",
+   "source_level_mix": "官方/市场/自建",
+   "evidence": "原文入库（kb_section 39 节 / 62829 字）"
+  },
+  {
+   "id": "region",
+   "name": "粤港澳大湾区区域市场数据（区域层）",
+   "file": "A_*.md / C_*.md / E_*.md 共 8 篇",
+   "scope": "粤港澳大湾区 9+2 城市群",
+   "source_level_mix": "市场（调研报告，N≈116）",
+   "evidence": "仅索引级（原文未入库，见 G15）"
+  }
+ ],
+ "unified_query_fields": [
+  "id",
+  "system",
+  "file",
+  "section",
+  "title",
+  "category",
+  "topic",
+  "scope",
+  "source_level",
+  "source",
+  "effective_from",
+  "verified_at",
+  "tags",
+  "related",
+  "kb_variable",
+  "group_code",
+  "table_hint",
+  "canvas_node"
+ ],
+ "groups": [
+  {
+   "group_code": "A-政务",
+   "group_name": "办事事项（部门/联系方式/问答/录取规则）",
+   "kb_variable": "KB_FACT",
+   "tables": "fact_department,fact_contact,fact_faq,fact_admission_rule,fact_leader",
+   "files": "学校官网_广州华南商贸职业学院_知识库.md",
+   "used_by": "W-G1 / W-G2",
+   "node_ref": "FLOW-19-SG"
+  },
+  {
+   "group_code": "A-概况",
+   "group_name": "学校概况（校情/学院/专业/理念/重点专业）",
+   "kb_variable": "KB_FACT",
+   "tables": "fact_school,fact_college,fact_major,fact_motto,fact_feature,fact_key_program,fact_training_direction",
+   "files": "学校官网_广州华南商贸职业学院_知识库.md",
+   "used_by": "W-S1 / W-S2",
+   "node_ref": "DATA-04-DB / INDEX-08-KW"
+  },
+  {
+   "group_code": "A-生活",
+   "group_name": "校园生活与交通",
+   "kb_variable": "KB_FACT",
+   "tables": "fact_living,fact_transport",
+   "files": "学校官网_广州华南商贸职业学院_知识库.md",
+   "used_by": "W-L1",
+   "node_ref": "FLOW-20-L"
+  },
+  {
+   "group_code": "B-学院",
+   "group_name": "学院专业级内容（培养方案 + 岗位 + 技能 + 薪资）",
+   "kb_variable": "KB_MAJOR_510201 / KB_MAJOR_510203 / KB_MAJOR_510208",
+   "tables": "fact_major,maj_major,maj_course,maj_semester,maj_semester_course,maj_certificate,maj_key_node,maj_path_coverage,act_major_position,act_position,act_position_skill,act_position_cert,act_position_major,act_salary_stat",
+   "files": "CS/SE/VR 三册 + 职业规划_知识库_v1.1.md",
+   "used_by": "W-F1 / W-F2 / W-F3",
+   "node_ref": "FLOW-24-F"
+  },
+  {
+   "group_code": "C-政策",
+   "group_name": "收费 / 招生通道 / 资助 / 升学 / 路径定义",
+   "kb_variable": "KB_FACT",
+   "tables": "fact_tuition,fact_admission_channel,fact_financial_aid,fact_articulation,fact_class_type,task_path",
+   "files": "学校官网_广州华南商贸职业学院_知识库.md",
+   "used_by": "W-C2",
+   "node_ref": "FLOW-21-C"
+  },
+  {
+   "group_code": "D-区域",
+   "group_name": "大湾区区域行情（索引级 8 条）",
+   "kb_variable": "IDX_REGION",
+   "tables": "idx_region,idx_entry",
+   "files": "A_*.md / C_*.md / E_*.md 共 8 篇（原文未入库）",
+   "used_by": "W-C7",
+   "node_ref": "FLOW-23-C7"
+  },
+  {
+   "group_code": "E-赛事证书",
+   "group_name": "赛事与证书池",
+   "kb_variable": "KB_MAJOR_510201 / KB_MAJOR_510203 / KB_MAJOR_510208",
+   "tables": "maj_certificate,maj_key_node,maj_event",
+   "files": "CS/SE/VR 三册 + 职业规划_知识库_v1.1.md",
+   "used_by": "W-C4 / W-C5 / W-F3",
+   "node_ref": "SUB-17-U6"
+  },
+  {
+   "group_code": "F-求职",
+   "group_name": "简历 / 面试 / 权益",
+   "kb_variable": "KB_ACTION",
+   "tables": "act_guide,act_guide_item,act_rights_rule",
+   "files": "职业规划_知识库_v1.1.md",
+   "used_by": "W-C6",
+   "node_ref": "FLOW-22-C6"
+  },
+  {
+   "group_code": "G-心理",
+   "group_name": "心理安全与熔断",
+   "kb_variable": "KB_SUPPORT",
+   "tables": "psy_crisis_level,psy_red_flag,psy_help_path,psy_article,psy_topic,psy_misconception,psy_self_check_dim",
+   "files": "心理安全_大学生心理健康安全_知识库.md",
+   "used_by": "W-L0",
+   "node_ref": "FLOW-20-L"
+  }
+ ],
+ "entries": [
+  {
+   "id": "region-advice",
+   "system": "region",
+   "file": "E_人才发展建议.md",
+   "section": "（整篇）",
+   "title": "人才发展对策建议（普惠化/精准触达/分层分类/托底培训）",
+   "category": "E",
+   "topic": "政策与对策",
+   "scope": "粤港澳大湾区",
+   "source_level": "市场",
+   "source": "《粤港澳大湾区企业人才现状与发展趋势：2025》第六章 6.1",
+   "effective_from": "2026-05-28",
+   "verified_at": "2026-11-12",
+   "tags": [
+    "对策",
+    "普惠政策",
+    "培训券",
+    "技能提升补贴",
+    "环境评分"
+   ],
+   "related": [
+    "职业规划_知识库_v1.1.md#§四",
+    "职业规划_知识库_v1.1.md#§五",
+    "职业规划_知识库_v1.1.md#§三",
+    "C_人才政策评价与三大痛点.md",
+    "A_AI浪潮下的人才影响.md"
+   ],
+   "kb_variable": "IDX_REGION",
+   "group_code": "D-区域",
+   "table_hint": "idx_region",
+   "canvas_node": "FLOW-23-C7",
+   "version": "v1.2"
+  },
+  {
+   "id": "region-ai",
+   "system": "region",
+   "file": "A_AI浪潮下的人才影响.md",
+   "section": "（整篇）",
+   "title": "AI 浪潮下的人才影响（仅15%企业有完善培养体系）",
+   "category": "A",
+   "topic": "岗位（技能）",
+   "scope": "粤港澳大湾区",
+   "source_level": "市场",
+   "source": "《粤港澳大湾区企业人才现状与发展趋势：2025》摘要及人才培养章节",
+   "effective_from": "2026-05-28",
+   "verified_at": "2026-11-12",
+   "tags": [
+    "AI",
+    "数字复合",
+    "培养体系15%",
+    "职位重组"
+   ],
+   "related": [
+    "职业规划_知识库_v1.1.md#§2.3",
+    "E_人才发展建议.md",
+    "C_人才政策评价与三大痛点.md"
+   ],
+   "kb_variable": "IDX_REGION",
+   "group_code": "D-区域",
+   "table_hint": "idx_region",
+   "canvas_node": "FLOW-23-C7",
+   "version": "v1.2"
+  },
+  {
+   "id": "region-channel",
+   "system": "region",
+   "file": "A_招聘渠道与求职建议.md",
+   "section": "（整篇）",
+   "title": "企业招聘渠道分布与求职渠道建议（综合网站85%）",
+   "category": "A",
+   "topic": "求职策略",
+   "scope": "粤港澳大湾区",
+   "source_level": "市场",
+   "source": "《粤港澳大湾区企业人才现状与发展趋势：2025》第二章表2-4",
+   "effective_from": "2026-05-28",
+   "verified_at": "2026-11-12",
+   "tags": [
+    "招聘渠道",
+    "综合网站85%",
+    "内推",
+    "校招",
+    "渠道组合"
+   ],
+   "related": [
+    "职业规划_知识库_v1.1.md#§2.1",
+    "职业规划_知识库_v1.1.md#§三",
+    "职业规划_知识库_v1.1.md#§六",
+    "A_人才流动与留存.md"
+   ],
+   "kb_variable": "IDX_REGION",
+   "group_code": "D-区域",
+   "table_hint": "idx_region",
+   "canvas_node": "FLOW-23-C7",
+   "version": "v1.2"
+  },
+  {
+   "id": "region-demand",
+   "system": "region",
+   "file": "A_湾区企业人才需求结构.md",
+   "section": "（整篇）",
+   "title": "湾区企业未来人才需求结构（研发51.3%/销售55.7%，第一优先研发45.2%）",
+   "category": "A",
+   "topic": "岗位",
+   "scope": "粤港澳大湾区",
+   "source_level": "市场",
+   "source": "《粤港澳大湾区企业人才现状与发展趋势：2025》第一/二章",
+   "effective_from": "2026-05-28",
+   "verified_at": "2026-11-12",
+   "tags": [
+    "需求结构",
+    "研发",
+    "销售",
+    "技术支撑",
+    "复合人才"
+   ],
+   "related": [
+    "职业规划_知识库_v1.1.md#§2.3",
+    "A_受访企业画像.md",
+    "A_AI浪潮下的人才影响.md"
+   ],
+   "kb_variable": "IDX_REGION",
+   "group_code": "D-区域",
+   "table_hint": "idx_region",
+   "canvas_node": "FLOW-23-C7",
+   "version": "v1.2"
+  },
+  {
+   "id": "region-international",
+   "system": "region",
+   "file": "A_国际化人才需求.md",
+   "section": "（整篇）",
+   "title": "湾区企业国际化/跨境人才需求（科技57.3%/国际业务52.7%）",
+   "category": "A",
+   "topic": "岗位（跨境）",
+   "scope": "粤港澳大湾区",
+   "source_level": "市场",
+   "source": "《粤港澳大湾区企业人才现状与发展趋势：2025》1.3",
+   "effective_from": "2026-05-28",
+   "verified_at": "2026-11-12",
+   "tags": [
+    "跨境",
+    "国际化",
+    "港澳资",
+    "资格互认"
+   ],
+   "related": [
+    "职业规划_知识库_v1.1.md#§2.3",
+    "A_受访企业画像.md",
+    "C_人才政策评价与三大痛点.md"
+   ],
+   "kb_variable": "IDX_REGION",
+   "group_code": "D-区域",
+   "table_hint": "idx_region",
+   "canvas_node": "FLOW-23-C7",
+   "version": "v1.2"
+  },
+  {
+   "id": "region-mobility",
+   "system": "region",
+   "file": "A_人才流动与留存.md",
+   "section": "（整篇）",
+   "title": "湾区人才流动与留存（年均流失11.7%，深/江门>15%）",
+   "category": "A",
+   "topic": "区域市场趋势",
+   "scope": "粤港澳大湾区",
+   "source_level": "市场",
+   "source": "《粤港澳大湾区企业人才现状与发展趋势：2025》第四章",
+   "effective_from": "2026-05-28",
+   "verified_at": "2026-11-12",
+   "tags": [
+    "流失率",
+    "留存",
+    "薪酬竞争力",
+    "深江高流失"
+   ],
+   "related": [
+    "职业规划_知识库_v1.1.md#§五.4",
+    "职业规划_知识库_v1.1.md#§六",
+    "A_招聘渠道与求职建议.md"
+   ],
+   "kb_variable": "IDX_REGION",
+   "group_code": "D-区域",
+   "table_hint": "idx_region",
+   "canvas_node": "FLOW-23-C7",
+   "version": "v1.2"
+  },
+  {
+   "id": "region-policy",
+   "system": "region",
+   "file": "C_人才政策评价与三大痛点.md",
+   "section": "（整篇）",
+   "title": "人才政策评价与企业端三大痛点（覆盖有限55.6%）",
+   "category": "C",
+   "topic": "政策",
+   "scope": "粤港澳大湾区",
+   "source_level": "市场",
+   "source": "《粤港澳大湾区企业人才现状与发展趋势：2025》第五章表5-3",
+   "effective_from": "2026-05-28",
+   "verified_at": "2026-11-12",
+   "tags": [
+    "政策",
+    "满意度",
+    "覆盖有限",
+    "宣传不到位",
+    "兑现周期长"
+   ],
+   "related": [
+    "职业规划_知识库_v1.1.md#§六",
+    "E_人才发展建议.md",
+    "A_国际化人才需求.md"
+   ],
+   "kb_variable": "IDX_REGION",
+   "group_code": "D-区域",
+   "table_hint": "idx_region",
+   "canvas_node": "FLOW-23-C7",
+   "version": "v1.2"
+  },
+  {
+   "id": "region-profile",
+   "system": "region",
+   "file": "A_受访企业画像.md",
+   "section": "（整篇）",
+   "title": "受访企业画像（行业/所有制结构，N=116）",
+   "category": "A",
+   "topic": "区域市场趋势",
+   "scope": "粤港澳大湾区",
+   "source_level": "市场",
+   "source": "《粤港澳大湾区企业人才现状与发展趋势：2025》",
+   "effective_from": "2026-05-28",
+   "verified_at": "2026-11-12",
+   "tags": [
+    "企业画像",
+    "制造44.8%",
+    "IT18.1%",
+    "民营69.8%",
+    "港澳资16.4%"
+   ],
+   "related": [
+    "职业规划_知识库_v1.1.md#§2.1",
+    "A_湾区企业人才需求结构.md",
+    "A_国际化人才需求.md"
+   ],
+   "kb_variable": "IDX_REGION",
+   "group_code": "D-区域",
+   "table_hint": "idx_region",
+   "canvas_node": "FLOW-23-C7",
+   "version": "v1.2"
+  },
+  {
+   "id": "profession-complaint",
+   "system": "profession",
+   "file": "职业规划_知识库_v1.1.md",
+   "section": "§6.5",
+   "title": "就业权益投诉渠道（12333 / 12345）",
+   "category": "简历面试",
+   "topic": "简历面试",
+   "scope": "全国",
+   "source_level": "官方",
+   "source": "全国人社政务服务热线 12333；政务服务便民热线 12345",
+   "effective_from": "2026-11-03",
+   "verified_at": "2026-11-03",
+   "tags": [
+    "权益",
+    "投诉",
+    "12333",
+    "12345",
+    "官方"
+   ],
+   "related": [],
+   "kb_variable": "KB_ACTION",
+   "group_code": "F-求职",
+   "table_hint": "act_rights_rule",
+   "canvas_node": "FLOW-22-C6",
+   "version": "v1.2"
+  },
+  {
+   "id": "profession-fraud",
+   "system": "profession",
+   "file": "职业规划_知识库_v1.1.md",
+   "section": "§6.4",
+   "title": "虚假招聘与黑中介识别",
+   "category": "简历面试",
+   "topic": "简历面试",
+   "scope": "全国",
+   "source_level": "官方",
+   "source": "人力资源社会保障部招聘陷阱提示",
+   "effective_from": "2026-11-03",
+   "verified_at": "2026-11-03",
+   "tags": [
+    "权益",
+    "虚假招聘",
+    "黑中介",
+    "官方"
+   ],
+   "related": [
+    "A_招聘渠道与求职建议.md"
+   ],
+   "kb_variable": "KB_ACTION",
+   "group_code": "F-求职",
+   "table_hint": "act_rights_rule",
+   "canvas_node": "FLOW-22-C6",
+   "version": "v1.2"
+  },
+  {
+   "id": "profession-interview-flow",
+   "system": "profession",
+   "file": "职业规划_知识库_v1.1.md",
+   "section": "§5.1",
+   "title": "面试通用流程（准备→开场→问答→反问→收尾）",
+   "category": "简历面试",
+   "topic": "简历面试",
+   "scope": "全国",
+   "source_level": "自建",
+   "source": "路书团队整理",
+   "effective_from": "2026-11-03",
+   "verified_at": "2026-11-03",
+   "tags": [
+    "面试",
+    "流程"
+   ],
+   "related": [],
+   "kb_variable": "KB_ACTION",
+   "group_code": "F-求职",
+   "table_hint": "act_guide,act_guide_item",
+   "canvas_node": "FLOW-22-C6",
+   "version": "v1.2"
+  },
+  {
+   "id": "profession-interview-group",
+   "system": "profession",
+   "file": "职业规划_知识库_v1.1.md",
+   "section": "§5.3",
+   "title": "群面 / 无领导小组讨论要点",
+   "category": "简历面试",
+   "topic": "简历面试",
+   "scope": "全国",
+   "source_level": "自建",
+   "source": "路书团队整理",
+   "effective_from": "2026-11-03",
+   "verified_at": "2026-11-03",
+   "tags": [
+    "面试",
+    "群面"
+   ],
+   "related": [],
+   "kb_variable": "KB_ACTION",
+   "group_code": "F-求职",
+   "table_hint": "act_guide,act_guide_item",
+   "canvas_node": "FLOW-22-C6",
+   "version": "v1.2"
+  },
+  {
+   "id": "profession-interview-qa",
+   "system": "profession",
+   "file": "职业规划_知识库_v1.1.md",
+   "section": "§5.2",
+   "title": "面试高频问题类型与回答框架（不编原题）",
+   "category": "简历面试",
+   "topic": "简历面试",
+   "scope": "全国",
+   "source_level": "自建",
+   "source": "路书团队整理",
+   "effective_from": "2026-11-03",
+   "verified_at": "2026-11-03",
+   "tags": [
+    "面试",
+    "高频问题",
+    "自我介绍",
+    "缺点"
+   ],
+   "related": [],
+   "kb_variable": "KB_ACTION",
+   "group_code": "F-求职",
+   "table_hint": "act_guide,act_guide_item",
+   "canvas_node": "FLOW-22-C6",
+   "version": "v1.2"
+  },
+  {
+   "id": "profession-job-notes",
+   "system": "profession",
+   "file": "职业规划_知识库_v1.1.md",
+   "section": "§2.3",
+   "title": "岗位笔记（五段式：做什么/会什么/证书/薪资/对口专业）",
+   "category": "岗位",
+   "topic": "岗位",
+   "scope": "学校/珠三角",
+   "source_level": "市场/官方混合",
+   "source": "本校招生网 + 中国公共招聘网 JD + 广东省人社厅 L3",
+   "effective_from": "2026-06-18",
+   "verified_at": "2026-11-03",
+   "tags": [
+    "岗位",
+    "能力",
+    "证书",
+    "薪资",
+    "五段式"
+   ],
+   "related": [
+    "A_湾区企业人才需求结构.md",
+    "A_受访企业画像.md",
+    "A_AI浪潮下的人才影响.md",
+    "A_国际化人才需求.md"
+   ],
+   "kb_variable": "KB_ACTION",
+   "group_code": "B-学院",
+   "table_hint": "act_position,act_position_skill,act_position_cert",
+   "canvas_node": "FLOW-24-F",
+   "version": "v1.2"
+  },
+  {
+   "id": "profession-major-map",
+   "system": "profession",
+   "file": "职业规划_知识库_v1.1.md",
+   "section": "§2.1",
+   "title": "专业→岗位对照表（本校 11 个代表性专业可投岗位）",
+   "category": "专业",
+   "topic": "专业",
+   "scope": "学校/珠三角",
+   "source_level": "市场",
+   "source": "本校招生网《创新人才培养》",
+   "effective_from": "2026-06-18",
+   "verified_at": "2026-11-03",
+   "tags": [
+    "专业对照",
+    "岗位入口",
+    "软件技术",
+    "电商",
+    "护理",
+    "人工智能"
+   ],
+   "related": [
+    "A_湾区企业人才需求结构.md",
+    "A_受访企业画像.md"
+   ],
+   "kb_variable": "KB_ACTION",
+   "group_code": "B-学院",
+   "table_hint": "act_major_position,act_position_major",
+   "canvas_node": "FLOW-24-F / SUB-13-U2",
+   "version": "v1.2"
+  },
+  {
+   "id": "profession-offer-salary",
+   "system": "profession",
+   "file": "职业规划_知识库_v1.1.md",
+   "section": "§5.4",
+   "title": "录用通知与薪酬谈判（红线：不给数字）",
+   "category": "简历面试",
+   "topic": "简历面试",
+   "scope": "全国",
+   "source_level": "自建",
+   "source": "路书团队整理",
+   "effective_from": "2026-11-03",
+   "verified_at": "2026-11-03",
+   "tags": [
+    "面试",
+    "Offer",
+    "谈薪",
+    "红线"
+   ],
+   "related": [
+    "profession-salary",
+    "A_人才流动与留存.md"
+   ],
+   "kb_variable": "KB_ACTION",
+   "group_code": "F-求职",
+   "table_hint": "act_guide,act_salary_stat",
+   "canvas_node": "FLOW-22-C6",
+   "version": "v1.2"
+  },
+  {
+   "id": "profession-probation",
+   "system": "profession",
+   "file": "职业规划_知识库_v1.1.md",
+   "section": "§6.2",
+   "title": "试用期法律规定（期限 + 工资≥80%）",
+   "category": "简历面试",
+   "topic": "简历面试",
+   "scope": "全国",
+   "source_level": "官方",
+   "source": "《劳动合同法》第十九条、第二十条",
+   "effective_from": "2012-12-28",
+   "verified_at": "2026-11-03",
+   "tags": [
+    "权益",
+    "试用期",
+    "劳动合同法",
+    "官方"
+   ],
+   "related": [],
+   "kb_variable": "KB_ACTION",
+   "group_code": "F-求职",
+   "table_hint": "act_rights_rule",
+   "canvas_node": "FLOW-22-C6",
+   "version": "v1.2"
+  },
+  {
+   "id": "profession-resume-action",
+   "system": "profession",
+   "file": "职业规划_知识库_v1.1.md",
+   "section": "§4.2",
+   "title": "经历描写：动词 + 内容 + 量化结果（强/弱写法）",
+   "category": "简历面试",
+   "topic": "简历面试",
+   "scope": "全国",
+   "source_level": "自建",
+   "source": "路书团队整理",
+   "effective_from": "2026-11-03",
+   "verified_at": "2026-11-03",
+   "tags": [
+    "简历",
+    "动词",
+    "量化"
+   ],
+   "related": [],
+   "kb_variable": "KB_ACTION",
+   "group_code": "F-求职",
+   "table_hint": "act_guide,act_guide_item",
+   "canvas_node": "FLOW-22-C6",
+   "version": "v1.2"
+  },
+  {
+   "id": "profession-resume-err",
+   "system": "profession",
+   "file": "职业规划_知识库_v1.1.md",
+   "section": "§4.3",
+   "title": "简历常见错误清单（诊断用，不代写）",
+   "category": "简历面试",
+   "topic": "简历面试",
+   "scope": "全国",
+   "source_level": "自建",
+   "source": "路书团队整理",
+   "effective_from": "2026-11-03",
+   "verified_at": "2026-11-03",
+   "tags": [
+    "简历",
+    "错误清单"
+   ],
+   "related": [],
+   "kb_variable": "KB_ACTION",
+   "group_code": "F-求职",
+   "table_hint": "act_guide,act_guide_item",
+   "canvas_node": "FLOW-22-C6",
+   "version": "v1.2"
+  },
+  {
+   "id": "profession-resume-struct",
+   "system": "profession",
+   "file": "职业规划_知识库_v1.1.md",
+   "section": "§4.1",
+   "title": "简历标准结构（板块顺序）",
+   "category": "简历面试",
+   "topic": "简历面试",
+   "scope": "全国",
+   "source_level": "自建",
+   "source": "路书团队整理（参考高校就业指导中心通用模板）",
+   "effective_from": "2026-11-03",
+   "verified_at": "2026-11-03",
+   "tags": [
+    "简历",
+    "结构"
+   ],
+   "related": [],
+   "kb_variable": "KB_ACTION",
+   "group_code": "F-求职",
+   "table_hint": "act_guide,act_guide_item",
+   "canvas_node": "FLOW-22-C6",
+   "version": "v1.2"
+  },
+  {
+   "id": "profession-root",
+   "system": "profession",
+   "file": "职业规划_知识库_v1.1.md",
+   "section": "（整册）",
+   "title": "职业规划知识库总纲（兴趣→专业→岗位→技能/证书→薪资→简历→面试→权益）",
+   "category": "综合",
+   "topic": "综合",
+   "scope": "学校/珠三角",
+   "source_level": "官方/市场/自建混合",
+   "source": "教育部/广东省人社厅/本校招生网/团队整理",
+   "effective_from": "2026-06-18",
+   "verified_at": "2026-11-03",
+   "tags": [
+    "职业规划",
+    "岗位",
+    "简历",
+    "面试",
+    "权益",
+    "薪资",
+    "总纲"
+   ],
+   "related": [
+    "A_湾区企业人才需求结构.md",
+    "A_受访企业画像.md",
+    "A_国际化人才需求.md",
+    "A_招聘渠道与求职建议.md",
+    "A_人才流动与留存.md",
+    "A_AI浪潮下的人才影响.md",
+    "C_人才政策评价与三大痛点.md",
+    "E_人才发展建议.md"
+   ],
+   "kb_variable": "KB_ACTION",
+   "group_code": null,
+   "table_hint": null,
+   "canvas_node": "SPEC-02-RULES",
+   "version": "v1.2"
+  },
+  {
+   "id": "profession-salary",
+   "system": "profession",
+   "file": "职业规划_知识库_v1.1.md",
+   "section": "§三",
+   "title": "薪资分位数数据表（L3·珠三角制造业 18 岗真实官方统计）",
+   "category": "岗位",
+   "topic": "岗位",
+   "scope": "珠三角",
+   "source_level": "市场",
+   "source": "广东省人社厅《珠三角制造业典型岗位薪酬分位数（2025Q4）》",
+   "effective_from": "2025-10-01",
+   "verified_at": "2026-11-03",
+   "tags": [
+    "薪资",
+    "分位数",
+    "L3",
+    "制造业",
+    "质检员",
+    "电工",
+    "焊工",
+    "模具工"
+   ],
+   "related": [
+    "A_人才流动与留存.md"
+   ],
+   "kb_variable": "KB_ACTION",
+   "group_code": "B-学院",
+   "table_hint": "act_salary_stat",
+   "canvas_node": "FLOW-24-F",
+   "version": "v1.2"
+  },
+  {
+   "id": "profession-schema",
+   "system": "profession",
+   "file": "职业规划_知识库_v1.1.md",
+   "section": "§〇",
+   "title": "字段与来源等级口径（category / source_level 铁律与红线）",
+   "category": "综合",
+   "topic": "综合",
+   "scope": "学校/珠三角",
+   "source_level": "自建",
+   "source": "路书团队整理",
+   "effective_from": "2026-11-03",
+   "verified_at": "2026-11-03",
+   "tags": [
+    "schema",
+    "source_level",
+    "薪资铁律",
+    "红线"
+   ],
+   "related": [],
+   "kb_variable": "KB_ACTION",
+   "group_code": null,
+   "table_hint": null,
+   "canvas_node": "SPEC-02-RULES / CONTRACT-09-RET",
+   "version": "v1.2"
+  },
+  {
+   "id": "profession-trainloan",
+   "system": "profession",
+   "file": "职业规划_知识库_v1.1.md",
+   "section": "§6.3",
+   "title": "培训贷陷阱识别",
+   "category": "简历面试",
+   "topic": "简历面试",
+   "scope": "全国",
+   "source_level": "官方",
+   "source": "教育部、银保监会等培训贷风险提示",
+   "effective_from": "2026-11-03",
+   "verified_at": "2026-11-03",
+   "tags": [
+    "权益",
+    "培训贷",
+    "陷阱",
+    "官方"
+   ],
+   "related": [
+    "A_招聘渠道与求职建议.md"
+   ],
+   "kb_variable": "KB_ACTION",
+   "group_code": "F-求职",
+   "table_hint": "act_rights_rule",
+   "canvas_node": "FLOW-22-C6",
+   "version": "v1.2"
+  },
+  {
+   "id": "profession-triparty",
+   "system": "profession",
+   "file": "职业规划_知识库_v1.1.md",
+   "section": "§6.1",
+   "title": "三方协议是什么、注意什么",
+   "category": "简历面试",
+   "topic": "简历面试",
+   "scope": "全国",
+   "source_level": "官方",
+   "source": "教育部《普通高等学校毕业生就业工作暂行规定》",
+   "effective_from": "2026-11-03",
+   "verified_at": "2026-11-03",
+   "tags": [
+    "权益",
+    "三方协议",
+    "官方"
+   ],
+   "related": [],
+   "kb_variable": "KB_ACTION",
+   "group_code": "F-求职",
+   "table_hint": "act_rights_rule",
+   "canvas_node": "FLOW-22-C6",
+   "version": "v1.2"
+  }
+ ],
+ "region_entries": [
+  {
+   "entry_id": "region-ai",
+   "file_name": "A_AI浪潮下的人才影响.md",
+   "title": "AI 浪潮下的人才影响（仅 15% 企业有完善培养体系）",
+   "category": "A",
+   "topic": "岗位（技能）",
+   "effective_from": "2026-05-28",
+   "source": "《粤港澳大湾区企业人才现状与发展趋势：2025》",
+   "data_points": "仅 15% 企业有完善培养体系",
+   "evidence_level": "标题级",
+   "content_status": "原文未入库（仅索引级）",
+   "canvas_node": "FLOW-23-C7",
+   "note": null
+  },
+  {
+   "entry_id": "region-channel",
+   "file_name": "A_招聘渠道与求职建议.md",
+   "title": "企业招聘渠道分布与求职渠道建议（综合网站 85%）",
+   "category": "A",
+   "topic": "求职策略",
+   "effective_from": "2026-05-28",
+   "source": "《粤港澳大湾区企业人才现状与发展趋势：2025》",
+   "data_points": "综合网站 85%（内推、校招仅见于标签，无数字）",
+   "evidence_level": "标题与标签级",
+   "content_status": "原文未入库（仅索引级）",
+   "canvas_node": "FLOW-23-C7",
+   "note": "内推 63.7% / 校招 52.2% 仅见于画布，原文未入库，禁止引用"
+  },
+  {
+   "entry_id": "region-demand",
+   "file_name": "A_湾区企业人才需求结构.md",
+   "title": "湾区企业未来人才需求结构（研发 51.3% / 销售 55.7%，第一优先研发 45.2%）",
+   "category": "A",
+   "topic": "岗位",
+   "effective_from": "2026-05-28",
+   "source": "《粤港澳大湾区企业人才现状与发展趋势：2025》",
+   "data_points": "研发 51.3%；销售 55.7%；第一优先研发 45.2%",
+   "evidence_level": "标题级",
+   "content_status": "原文未入库（仅索引级）",
+   "canvas_node": "FLOW-23-C7",
+   "note": null
+  },
+  {
+   "entry_id": "region-international",
+   "file_name": "A_国际化人才需求.md",
+   "title": "湾区企业国际化 / 跨境人才需求（科技 57.3% / 国际业务 52.7%）",
+   "category": "A",
+   "topic": "岗位（跨境）",
+   "effective_from": "2026-05-28",
+   "source": "《粤港澳大湾区企业人才现状与发展趋势：2025》",
+   "data_points": "科技 57.3%；国际业务 52.7%",
+   "evidence_level": "标题级",
+   "content_status": "原文未入库（仅索引级）",
+   "canvas_node": "FLOW-23-C7",
+   "note": null
+  },
+  {
+   "entry_id": "region-mobility",
+   "file_name": "A_人才流动与留存.md",
+   "title": "湾区人才流动与留存（年均流失 11.7%，深 / 江门 >15%）",
+   "category": "A",
+   "topic": "区域市场趋势",
+   "effective_from": "2026-05-28",
+   "source": "《粤港澳大湾区企业人才现状与发展趋势：2025》",
+   "data_points": "年均流失 11.7%；深圳 / 江门 >15%",
+   "evidence_level": "标题级",
+   "content_status": "原文未入库（仅索引级）",
+   "canvas_node": "FLOW-23-C7",
+   "note": "企业侧调研值，不可说成个人离职概率"
+  },
+  {
+   "entry_id": "region-profile",
+   "file_name": "A_受访企业画像.md",
+   "title": "受访企业画像（行业 / 所有制结构，N=116）",
+   "category": "A",
+   "topic": "区域市场趋势",
+   "effective_from": "2026-05-28",
+   "source": "《粤港澳大湾区企业人才现状与发展趋势：2025》",
+   "data_points": "制造 44.8%；IT 18.1%；民营 69.8%；港澳资 16.4%",
+   "evidence_level": "标题与标签级",
+   "content_status": "原文未入库（仅索引级）",
+   "canvas_node": "FLOW-23-C7",
+   "note": null
+  },
+  {
+   "entry_id": "region-policy",
+   "file_name": "C_人才政策评价与三大痛点.md",
+   "title": "人才政策评价与企业端三大痛点（覆盖有限 55.6%）",
+   "category": "C",
+   "topic": "政策",
+   "effective_from": "2026-05-28",
+   "source": "《粤港澳大湾区企业人才现状与发展趋势：2025》",
+   "data_points": "覆盖有限 55.6%（宣传不到位 51.0% 仅见于画布，原文未入库）",
+   "evidence_level": "标题级",
+   "content_status": "原文未入库（仅索引级）",
+   "canvas_node": "FLOW-23-C7",
+   "note": "51.0% 禁止引用"
+  },
+  {
+   "entry_id": "region-advice",
+   "file_name": "E_人才发展建议.md",
+   "title": "人才发展对策建议（普惠化 / 精准触达 / 分层分类 / 托底培训）",
+   "category": "E",
+   "topic": "政策与对策",
+   "effective_from": "2026-05-28",
+   "source": "《粤港澳大湾区企业人才现状与发展趋势：2025》",
+   "data_points": "无数字；四类对策",
+   "evidence_level": "标题级",
+   "content_status": "原文未入库（仅索引级）",
+   "canvas_node": "FLOW-23-C7",
+   "note": null
+  }
+ ],
+ "gaps": [
+  {
+   "code": "G1",
+   "title": "48 个专业完整名单",
+   "status": "待核实",
+   "answer_rule": "答“现有资料未覆盖”，并指向建议获取方式"
+  },
+  {
+   "code": "G2",
+   "title": "非招生类部门直拨电话（校办 / 教务处 / 心理中心 / 保卫处）",
+   "status": "官网未公开",
+   "answer_rule": "只给归口部门名与办事路径；问招生类电话可给招生咨询电话（KB_FACT 9.4）"
+  },
+  {
+   "code": "G3",
+   "title": "心理健康教育中心 / 辅导员直拨号码",
+   "status": "本库未覆盖",
+   "answer_rule": "只给路径：辅导员 / 心理健康中心现场预约；紧急情况给 110、120（psy_help_path 第 4 条有原文出处）；其余号码一律不给"
+  },
+  {
+   "code": "G4",
+   "title": "薪资分位数的样本量",
+   "status": "本库未覆盖",
+   "answer_rule": "引用分位数时必须同时写「源页未公开样本量」"
+  },
+  {
+   "code": "G5",
+   "title": "岗位—专业权重（对口强度）",
+   "status": "本库未覆盖",
+   "answer_rule": "只做「是否对口」布尔判断，不做匹配打分、不给权重数字"
+  },
+  {
+   "code": "G6",
+   "title": "考编（公务员 / 事业单位）",
+   "status": "本库未覆盖",
+   "answer_rule": "三专业 maj_path_coverage 考编=未覆盖 → 直接 U4，不得描述考试科目 / 时间 / 报名条件"
+  },
+  {
+   "code": "G7",
+   "title": "专插本·专升本（软件技术）",
+   "status": "本库未覆盖",
+   "answer_rule": "SE 册标注完全未覆盖 → 直接 U4"
+  },
+  {
+   "code": "G8",
+   "title": "分学期课程无学分 / 学时（SE 为文字版）",
+   "status": "本库未覆盖",
+   "answer_rule": "只给课名与模块，不给学分学时"
+  },
+  {
+   "code": "G9",
+   "title": "分学期学分合计原文≈277.5，与总学分 165.5 不一致",
+   "status": "原文标注",
+   "answer_rule": "引用时注明「原文标注值，未修正」"
+  },
+  {
+   "code": "G10",
+   "title": "VR 册未标注所属学院与专业群",
+   "status": "本库未覆盖",
+   "answer_rule": "不推测归属；问「VR 属哪个学院」→ 未收录"
+  },
+  {
+   "code": "G11",
+   "title": "无独立赛事表；证书 / 赛事无报名窗口字段",
+   "status": "本库未覆盖",
+   "answer_rule": "只能学期级粗定位；问具体报名截止日 / 考试日 → U4"
+  },
+  {
+   "code": "G12",
+   "title": "生活类场所地点与后勤电话（宿管 / 维修 / 快递点）",
+   "status": "官网未公开",
+   "answer_rule": "给「怎么做 + 找谁」，不给号码与门牌"
+  },
+  {
+   "code": "G13",
+   "title": "赛事池仅 1 条（SE），CS / VR 无赛事记录",
+   "status": "本库未覆盖",
+   "answer_rule": "CS / VR 问竞赛 → U4，并建议咨询双创学院"
+  },
+  {
+   "code": "G14",
+   "title": "各二级学院的专业与介绍（含人文与教育 / 设计与传媒 / 马克思主义学院无专业数据）",
+   "status": "待核实",
+   "answer_rule": "答“现有资料未覆盖”，并指向建议获取方式"
+  },
+  {
+   "code": "G15",
+   "title": "8 篇区域报告原文未入库（仅索引级）",
+   "status": "本库未覆盖",
+   "answer_rule": "只能引标题级关键数字，必须注明「据索引级条目」；细分数字（内推 63.7%、宣传不到位 51.0% 等）不得引用"
+  }
+ ]
+}
